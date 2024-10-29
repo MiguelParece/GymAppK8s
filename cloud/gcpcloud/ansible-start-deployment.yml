@@ -1,0 +1,44 @@
+---
+- hosts: master
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars:
+    docker_username: "parece"  # Replace with the Docker username of the images you are trying to use
+
+  tasks:
+    - name: Copy all Kubernetes YAML files from the local directory to the destination
+      copy:
+        src: /home/vagrant/project/k8s/
+        dest: /home/ubuntu/k8s/
+        mode: '0777'
+
+    - name: Apply Kubernetes configuration
+      shell: |
+        export DOCKER_USERNAME={{ docker_username }}
+        ./apply_k8s_config.sh
+      args:
+        chdir: /home/ubuntu/k8s/
+
+    - name: Install helm & add prometheus-community repo
+      shell: |
+        curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+        sudo apt-get install apt-transport-https --yes
+        echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+        sudo apt-get update
+        sudo apt-get install helm
+        sudo helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+        sudo helm repo update
+      args:
+        chdir: /home/ubuntu/
+
+    - name: Copy values YAML file for Grafana
+      copy:
+        src: /home/vagrant/project/cloud/gcpcloud/values.yaml
+        dest: /home/ubuntu/
+        mode: '0777'
+
+    - name: Install Grafana
+      shell: |
+        cd /home/ubuntu/
+        sudo helm install chartstack --values values.yaml prometheus-community/kube-prometheus-stack

@@ -1,0 +1,45 @@
+This is ApacheBench, Version 2.3 <$Revision: 1913912 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 35.204.111.58 (be patient)
+
+
+Server Software:        nginx/1.27.2
+Server Hostname:        35.204.111.58
+Server Port:            30001
+
+Document Path:          /api/onermcalculator
+Document Length:        23 bytes
+
+Concurrency Level:      20
+Time taken for tests:   5.699 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      252000 bytes
+Total body sent:        421000
+HTML transferred:       23000 bytes
+Requests per second:    175.47 [#/sec] (mean)
+Time per request:       113.979 [ms] (mean)
+Time per request:       5.699 [ms] (mean, across all concurrent requests)
+Transfer rate:          43.18 [Kbytes/sec] received
+                        72.14 kb/s sent
+                        115.32 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       45   53   3.1     52      65
+Processing:    48   58   5.3     57      83
+Waiting:       46   56   5.3     55      80
+Total:         96  111   7.0    110     142
+
+Percentage of the requests served within a certain time (ms)
+  50%    110
+  66%    113
+  75%    115
+  80%    116
+  90%    120
+  95%    124
+  98%    129
+  99%    136
+ 100%    142 (longest request)

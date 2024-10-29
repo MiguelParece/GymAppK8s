@@ -1,0 +1,42 @@
+.history-container {
+    max-width: 600px; /* Limit width for better layout */
+    margin: 100px auto; /* Center the container */
+    padding: 30px;
+    background-color: #ecf0f1; /* Light gray for contrast */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Consistent font */
+  }
+  
+  .history-title {
+    text-align: center; /* Center the heading */
+    font-size: 28px; /* Font size for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #2c3e50; /* Dark blue-gray color */
+    font-weight: bold; /* Bold heading */
+  }
+  
+  .history-list {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .history-item {
+    background-color: #ffffff; /* White background for list items */
+    padding: 15px; /* Padding for list items */
+    margin-bottom: 15px; /* Space between list items */
+    border-radius: 10px; /* Rounded corners for list items */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for list items */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+  }
+  
+  .history-item:hover {
+    background-color: #f1f1f1; /* Light gray on hover for list items */
+  }
+  
+  .no-history {
+    text-align: center; /* Center the text for no history */
+    color: #34495e; /* Darker gray for text */
+    font-size: 16px; /* Font size for no history message */
+  }
+  

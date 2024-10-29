@@ -1,0 +1,8 @@
+---
+- hosts: master
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+    - name: Run remove.sh script
+      shell: sudo /home/ubuntu/k8s/remove.sh

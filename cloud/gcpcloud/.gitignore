@@ -1,0 +1,4 @@
+./.terraform
+./.terraform.lock.hcl
+./terraform.tfstate
+./agisit-project-g27-2425-eaf92394a8ad.json
